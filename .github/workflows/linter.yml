@@ -9,9 +9,9 @@ name: Lint Code Base
 
 on:
   push:
-    branches: [main]
+    branches: [add-more-files]
   pull_request:
-    branches: [main]
+    branches: [add-more-files]
 jobs:
   run-lint:
     runs-on: ubuntu-latest
@@ -26,6 +26,8 @@ jobs:
       - name: Lint Code Base
         uses: github/super-linter/slim@v4
         env:
-          VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: main
+          # VALIDATE_ALL_CODEBASE: false
+          VALIDATE_CLANG_FORMAT: true
+          #VALIDATE_PYTHON_FLAKE8: true
+          DEFAULT_BRANCH: add-more-files
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
